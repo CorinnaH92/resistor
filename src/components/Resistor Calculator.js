@@ -24,7 +24,7 @@ class ResistorCalculator extends React.Component {
 
     calculateParllel() {
         this.props.setResistance();
-        
+
     }
 
     render() {
