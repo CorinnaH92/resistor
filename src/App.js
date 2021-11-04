@@ -10,7 +10,6 @@ function App() {
        <ResistorCalculator/>
         <ResistorTable/>
 
-
     </div>
   );
 }

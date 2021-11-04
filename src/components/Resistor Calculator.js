@@ -17,14 +17,11 @@ class ResistorCalculator extends React.Component {
 
     calculateSeries() {
         const {r1, r2, r3} = this.state;
-        this.props.setResistance();
-       double rg= r1+r2+r3;
-
+        this.props.setResistance()
+         rges: r1+r2+r3,
     }
-
-    calculateParllel() {
+    calculateParallel() {
         this.props.setResistance();
-
     }
 
     render() {
@@ -47,7 +44,7 @@ class ResistorCalculator extends React.Component {
 
                 <div>
                     < button onClick={this.calculateSeries.bind}>Serienschaltung berechnen</button>
-                    < button onClick={this.calculateParllel.bind}>Parallelschaltung berechnen</button>
+                    < button onClick={this.calculateParallel.bind}>Parallelschaltung berechnen</button>
                 </div>
             </>
         );
@@ -55,3 +52,5 @@ class ResistorCalculator extends React.Component {
 }
 
 export default ResistorCalculator;
+
+//<App>
