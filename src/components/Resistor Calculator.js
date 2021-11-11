@@ -2,9 +2,11 @@ import React from "react";
 
 class ResistorCalculator extends React.Component {
 
-    constructor() {
+    constructor(props) {
         super();
-        this.state = {
+        this.props= props;
+
+        this.state= {
             r1: 0,
             r2: 0,
             r3: 0,
@@ -14,32 +16,31 @@ class ResistorCalculator extends React.Component {
     change(e) {
         this.setState({[e.target.name]: e.target.value});
     }
+    calcRess(){
+        this.props.resistor.setResistor(parseFloat(this.state.r1)+parseFloat(this.state.r2)+parseFloat(this.state.r3));
+    };
+    clacResP(){
+        let inv= 1/this.state.r1+ 1/this.state.r2+ 1/this.state.r3;
+        this.props.resistor.setResistor(1/inv);
+    }
 
-    calculateSeries() {
-        const {r1, r2, r3} = this.state;
-        this.props.setResistance()
-         rges: r1+r2+r3,
-    }
-    calculateParallel() {
-        this.props.setResistance();
-    }
 
     render() {
         console.log(this.state);
         return (<>
                 <div>
                     <label htmlFor="r1">R1</label>
-                    <input type="number" name="r1" onChange={(this.change.bind(this))}/>
+                    <input value={ this.state.r1} type={'number'} id={'r1'} onChange={e=>this.setState({r1:e.target.value})}/>
                 </div>
 
                 <div>
-                    <label htmlfor="r2">R2</label>
-                    <input type="number" name="r2" onChange={(this.change.bind(this))}/>
+                    <label htmlFor="r2">R2</label>
+                    <input value={ this.state.r2} type={'number'} id={'r2'} onChange={e=>this.setState({r2:e.target.value})}/>
                 </div>
 
                 <div>
-                    <label htmlfor="r3">R3</label>
-                    <input type="number" name="r3" onChange={(this.change.bind(this))}/>
+                    <label htmlFor="r3">R3</label>
+                    <input value={ this.state.r3} type={'number'} id={'r3'} onChange={e=>this.setState({r3:e.target.value})}/>
                 </div>
 
                 <div>
